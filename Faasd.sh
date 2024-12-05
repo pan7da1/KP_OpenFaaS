@@ -1,6 +1,6 @@
 #!/bin/bash
 apt-get install -y
-cd /tmp
+cd ../tmp
 git clone https://github.com/openfaas/faasd --depth=1 #install faasd
 cd faasd
 ./hack/install.sh
