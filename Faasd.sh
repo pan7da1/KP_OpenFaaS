@@ -1,9 +1,24 @@
 #!/bin/bash
-apt-get install -y
-cd ../tmp
-git clone https://github.com/openfaas/faasd --depth=1 #install faasd
+
+# Обновление пакетов и установка необходимых зависимостей
+apt-get update -y
+apt-get install -y git
+
+# Переход в директорию /tmp
+cd /tmp
+
+# Клонирование репозитория faasd
+git clone https://github.com/openfaas/faasd --depth=1
+
+# Переход в директорию faasd
 cd faasd
+
+# Установка faasd
 ./hack/install.sh
-curl -sSL https://cli.openfaas.com | sudo sh #intall faas-cli
-sudo cat /var/lib/faasd/secrets/basic-auth-password #password for faas gateway-panel
+
+# Установка faas-cli
+curl -sSL https://cli.openfaas.com | sudo sh
+
+# Вывод пароля для faas gateway-panel
+sudo cat /var/lib/faasd/secrets/basic-auth-password
 echo
